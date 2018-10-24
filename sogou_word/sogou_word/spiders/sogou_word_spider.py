@@ -4,7 +4,13 @@ import scrapy
 
 def get_cate2(response):
     cate1 = response.meta['cate1']
-    print(cate1)
+
+    # print(cate1)
+    div_cate_no_child_list = response.xpath('//*[@class="cate_no_child no_select"]')
+    div_cate_has_child_list = response.xpath('//*[@class="cate_has_child no_select"]')
+    div_cate2_list = div_cate_no_child_list + div_cate_has_child_list
+
+    print('total cate2 num:142,get cate2 num:',len(div_cate2_list))
 
 class SogouWordSpiderSpider(scrapy.Spider):
     name = 'sogou_word_spider'
