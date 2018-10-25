@@ -15,6 +15,3 @@ class SogouWordItem(scrapy.Item):
     filename = scrapy.Field()
     cate1 = scrapy.Field()
     cate2 = scrapy.Field()
-
-# class SogouWordFileItem(scrapy.item):
-#     file_urls = scrapy.Field()

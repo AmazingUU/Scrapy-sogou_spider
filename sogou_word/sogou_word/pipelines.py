@@ -7,6 +7,7 @@
 import os
 
 import scrapy
+from scrapy.exceptions import DropItem
 from scrapy.pipelines.files import FilesPipeline
 
 
@@ -17,6 +18,15 @@ class SogouWordPipeline(object):
 class SogouWordFilePipeline(FilesPipeline):
     def get_media_requests(self, item, info):
         yield scrapy.Request(item['url'],meta={'filename':item['filename']})
+
+    def item_completed(self, results, item, info):
+        file_paths = [x['path'] for ok, x in results if ok]
+        if not file_paths:
+            print('下载失败')
+            raise DropItem("Item contains no files")
+        # item['file_paths'] = file_paths
+        print('下载成功')
+        return item
 
     def file_path(self, request, response=None, info=None):
         filename = request.meta['filename']

@@ -14,7 +14,6 @@ def strip(title):
 
 def get_download(response):
     item = SogouWordItem()
-    # file_item = SogouWordFileItem()
     cate1 = response.meta['cate1']
     cate2 = response.meta['cate2']
 
