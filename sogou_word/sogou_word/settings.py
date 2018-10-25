@@ -64,10 +64,11 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'sogou_word.pipelines.SogouWordPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'sogou_word.pipelines.SogouWordFilePipeline': 300,
+}
 
+FILES_STORE = 'D:\github\Scrapy-sogou_spider\sogou_word\sogou_word\download'
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True

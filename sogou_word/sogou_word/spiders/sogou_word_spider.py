@@ -1,11 +1,20 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-from sogou_word.sogou_word.items import SogouWordItem
+from sogou_word.items import SogouWordItem
 
+
+def strip(title):
+    res = ''
+    char_list = ['\\','/',':','*','?','"','<','>','|']
+    for char in title:
+        if char not in char_list:
+            res += char
+    return res
 
 def get_download(response):
     item = SogouWordItem()
+    # file_item = SogouWordFileItem()
     cate1 = response.meta['cate1']
     cate2 = response.meta['cate2']
 
@@ -14,8 +23,8 @@ def get_download(response):
     div_detail_list = div_detail_block_list + div_detail_block_odd_list
     for div in div_detail_list:
         title = div.xpath('./div[1]/div/a/text()').extract()[0]
-        item['file_urls'] = div.xpath('./div[2]/div[2]/a/@href').extract()[0]
-        item['filename'] = '{}_{}_{}'.format(cate1,cate2,title)
+        item['url'] = div.xpath('./div[2]/div[2]/a/@href').extract()[0]
+        item['filename'] = '{}_{}_{}'.format(cate1,cate2,strip(title))
         item['cate1'] = cate1
         item['cate2'] = cate2
         yield item
