@@ -30,7 +30,7 @@ def get_download(response):  # 获取下载url和标题
         yield item
 
 
-def get_detail(response):  # 获取每一个小类的页数
+def get_detail(response):  # 获取每一个二级分类的页数
     cate1 = response.meta['cate1']
     cate2 = response.meta['cate2']
     url = response.meta['url']
@@ -46,16 +46,16 @@ def get_detail(response):  # 获取每一个小类的页数
         yield scrapy.Request(link, callback=get_download, meta={'cate1': cate1, 'cate2': cate2}, dont_filter=True)
 
 
-def get_cate2(response):  # 获取小类的相关信息
+def get_cate2(response):  # 获取二级分类的相关信息
     cate1 = response.meta['cate1']
-    # 没有再细化分的小类标签列表，例如:"自然科学"里的数学
+    # 没有再细化分的二级分类标签列表，例如:"自然科学"里的数学
     div_cate_no_child_list = response.xpath('//*[@class="cate_no_child no_select"]')
-    # 有细化分的小类标签列表,例如:"自然科学"里的物理
+    # 有细化分的二级分类标签列表,例如:"自然科学"里的物理
     div_cate_has_child_list = response.xpath('//*[@class="cate_has_child no_select"]')
     div_cate2_list = div_cate_no_child_list + div_cate_has_child_list
     for div in div_cate2_list:
         cate2_list = div.xpath('./a//text()').extract()
-        # 将小类标题和数字组合，例:风景名胜(4)
+        # 将二级分类标题和数字组合，例:风景名胜(4)
         cate2 = cate2_list[0] + cate2_list[1]
         url = 'http://pinyin.sogou.com' + div.xpath('./a/@href').extract()[0]
         yield scrapy.Request(url, callback=get_detail, meta={'cate1': cate1, 'cate2': cate2, 'url': url},
@@ -68,7 +68,7 @@ class SogouWordSpiderSpider(scrapy.Spider):
     start_urls = ['http://pinyin.sogou.com/dict/cate/index/167/']
 
     def parse(self, response):
-        # 这里大类的文字信息爬取不到，因为网页上大类名称是图片上的文字，所以直接就写死这十二大类了
+        # 这里一级分类的文字信息爬取不到，因为网页上一级分类名称是图片上的文字，所以直接就写死这十二类了
         cate1_list = ['城市信息', '自然科学', '社会科学', '工程应用', '农林渔畜', '医学医药', '电子游戏', '艺术设计', '生活百科', '运动休闲', '人文科学', '娱乐休闲']
         li_list = response.xpath('//*[@id="dict_nav_list"]/ul/li')
         # 获取大类的相关信息

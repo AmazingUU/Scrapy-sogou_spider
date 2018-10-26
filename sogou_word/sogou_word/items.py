@@ -13,5 +13,5 @@ class SogouWordItem(scrapy.Item):
     # name = scrapy.Field()
     url = scrapy.Field()  # 词库下载url
     filename = scrapy.Field()  # 文件名
-    cate1 = scrapy.Field()  # 大类
-    cate2 = scrapy.Field()  # 小类
+    cate1 = scrapy.Field()  # 一级分类
+    cate2 = scrapy.Field()  # 二级分类
