@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d9c8d75-8bbd-4b5f-8ad6-7da8c7b674e4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/sogou_word/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/sogou_word/items.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sogou_word/spiders/sogou_word_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/sogou_word/spiders/sogou_word_spider.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sogou_word_spider.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sogou_word_spider.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sogou_word/spiders/sogou_word_spider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="70" column="55" selection-start-line="70" selection-start-column="55" selection-end-line="70" selection-end-column="55" />
+            <state relative-caret-position="363">
+              <caret line="73" column="14" lean-forward="true" selection-start-line="73" selection-start-column="14" selection-end-line="73" selection-end-column="14" />
               <folding>
                 <element signature="e#24#37#0" expanded="true" />
               </folding>
@@ -77,7 +76,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sogou_word/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="327">
@@ -96,8 +95,8 @@
       <list>
         <option value="$PROJECT_DIR$/sogou_word/pipelines.py" />
         <option value="$PROJECT_DIR$/sogou_word/settings.py" />
-        <option value="$PROJECT_DIR$/sogou_word/spiders/sogou_word_spider.py" />
         <option value="$PROJECT_DIR$/sogou_word/items.py" />
+        <option value="$PROJECT_DIR$/sogou_word/spiders/sogou_word_spider.py" />
       </list>
     </option>
   </component>
@@ -250,16 +249,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sogou_word/spiders/sogou_word_spider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="70" column="55" selection-start-line="70" selection-start-column="55" selection-end-line="70" selection-end-column="55" />
-          <folding>
-            <element signature="e#24#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sogou_word/pipelines.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -281,6 +270,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
           <caret line="70" selection-start-line="70" selection-end-line="70" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sogou_word/spiders/sogou_word_spider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="73" column="14" lean-forward="true" selection-start-line="73" selection-start-column="14" selection-end-line="73" selection-end-column="14" />
+          <folding>
+            <element signature="e#24#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -37,9 +37,10 @@ def get_detail(response):  # 获取每一个二级分类的页数
 
     li_list = response.xpath('//*[@id="dict_page_list"]/ul/li')
     try:
+        # li_list[-1]为下一页，[-2]即为总页数
         page_num = li_list[-2].xpath('./span/a/text()').extract()[0]
     except:
-        page_num = 1
+        page_num = 1  # 只有一页才会报数组越界异常
     for i in range(1, int(page_num) + 1):
         # 将页数和原url组合成新的url才是包含所有词库的url
         link = url + '/default/' + str(i)
@@ -71,7 +72,7 @@ class SogouWordSpiderSpider(scrapy.Spider):
         # 这里一级分类的文字信息爬取不到，因为网页上一级分类名称是图片上的文字，所以直接就写死这十二类了
         cate1_list = ['城市信息', '自然科学', '社会科学', '工程应用', '农林渔畜', '医学医药', '电子游戏', '艺术设计', '生活百科', '运动休闲', '人文科学', '娱乐休闲']
         li_list = response.xpath('//*[@id="dict_nav_list"]/ul/li')
-        # 获取大类的相关信息
+        # 获取一级分类的相关信息
         for i in range(len(li_list)):
             url = 'http://pinyin.sogou.com' + li_list[i].xpath('./a/@href').extract()[0]
             yield scrapy.Request(url, callback=get_cate2, meta={'cate1': cate1_list[i]})
