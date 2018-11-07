@@ -13,7 +13,7 @@ from scrapy.pipelines.files import FilesPipeline
 
 
 class SogouWordPipeline(object):  # 将数据存入数据库
-    db = pymysql.connect('localhost', 'root', 'admin', 'sogou', charset='utf8')
+    db = pymysql.connect('***', '***', '***', '***', charset='utf8')
 
     def insert(self, item):
         sql = 'insert into detail(url,filename,cate1,cate2,create_time) values(%s,%s,%s,%s,now())'
